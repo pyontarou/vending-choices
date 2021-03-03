@@ -23,6 +23,19 @@
 
 - has_many :orders
 
+## items テーブル
+
+| Column     | Type       | Options                        |
+| ---------  | ---------- | ------------------------------ |
+| stock      | references | null: false, foreign_key: true |
+
+### Association
+
+- has_many :alcohols, through: :stocks
+- has_many :foods, through: :stocks
+- has_one :order
+
+
 ## alcohols テーブル
 
 | Column           | Type       | Options                        |
@@ -37,7 +50,7 @@
 
 ### Association
 
-- has_many :orders, through: :stocks
+- has_many :items, through: :stocks
 
 ## foods テーブル
 
@@ -51,7 +64,7 @@
 
 ### Association
 
-- has_many :orders, through: :stocks
+- has_many :items, through: :stocks
 
 ## stocks テーブル
 
@@ -72,10 +85,12 @@
 | Column     | Type       | Options                        |
 | ---------  | ---------- | ------------------------------ |
 | user       | references | null: false, foreign_key: true |
+| item       | references | null: false, foreign_key: true |
 
 ### Association
 
+- belongs_to :item
 - belongs_to :user
-has_many :alcohols, through: :stocks
-has_many :foods, through: :stocks
+
+
 
