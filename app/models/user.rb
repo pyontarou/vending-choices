@@ -27,7 +27,5 @@ class User < ApplicationRecord
   with_options numericality: { other_than: 1 } do
     validates :prefectures_id
   end
-
-
-    
+   
 end

@@ -111,6 +111,24 @@
   cursor: pointer;
 }
 
+.shipping-address-form {
+  margin-top: 15px;
+}
+
+.form-any {
+  background: #ccc;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  padding: 2px 4px;
+}
+
+.buy-btn {
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
 .input-birth-wrap p {
   line-height: 60px;
   padding: 0 5px;
