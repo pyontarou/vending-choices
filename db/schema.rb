@@ -10,7 +10,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_03_055226) do
+ActiveRecord::Schema.define(version: 2021_03_05_020831) do
+
+  create_table "alcohols", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "category", null: false
+    t.string "name", null: false
+    t.integer "price", null: false
+    t.string "alcohol_content", null: false
+    t.string "where_from", null: false
+    t.string "company_name", null: false
+    t.string "alcohol_type", null: false
+    t.string "type", null: false
+    t.string "image", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "foods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "category", null: false
+    t.string "name", null: false
+    t.integer "price", null: false
+    t.string "alcohol_content", null: false
+    t.string "where_from", null: false
+    t.string "company_name", null: false
+    t.string "food_type", null: false
+    t.string "image", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "alcohol_id", null: false
+    t.bigint "food_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["alcohol_id"], name: "index_items_on_alcohol_id"
+    t.index ["food_id"], name: "index_items_on_food_id"
+  end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", null: false
@@ -36,4 +72,6 @@ ActiveRecord::Schema.define(version: 2021_03_03_055226) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "items", "alcohols"
+  add_foreign_key "items", "foods"
 end
