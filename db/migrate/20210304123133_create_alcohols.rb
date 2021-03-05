@@ -8,7 +8,7 @@ class CreateAlcohols < ActiveRecord::Migration[6.0]
       t.string :where_from,       null: false
       t.string :company_name,     null: false
       t.string :alcohol_type,     null: false
-      t.string :type,             null: false
+      t.string :taste_type,       null: false
       t.string :image,            null: false
       t.timestamps
     end
