@@ -5,7 +5,9 @@ class ItemsController < ApplicationController
 
   def index
     @alcohols = Alcohol.all
+    set_alcohol_column
     @foods = Food.all
+    set_food_column
   end
 
   def search
@@ -18,7 +20,17 @@ class ItemsController < ApplicationController
   def search_alcohol
     @a = Alcohol.ransack(params[:q])
   end
+
+  def set_alcohol_column
+    @alcohol_category = Alcohol.select("category").distinct
+  end
+  
   def  search_food 
     @f = Food.ransack(params[:q])
+    @food_category = Food.select("category").distinct
+  end
+
+  def set_food_column
+    
   end
 end
