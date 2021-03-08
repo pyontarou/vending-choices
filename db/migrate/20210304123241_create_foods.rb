@@ -7,7 +7,7 @@ class CreateFoods < ActiveRecord::Migration[6.0]
       t.string :where_from,       null: false
       t.string :company_name,     null: false
       t.string :food_type,        null: false
-      t.string :image,            null: false
+      t.string :image
       t.timestamps
     end
   end
