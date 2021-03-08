@@ -1,41 +1,52 @@
-
-<h2 class='service-title'>
-     本日の至極の一品を どうぞ！
-</h2>
-
-<div class="contents row">
-  <% if @results == @alcohols %>
-    <% @results.each do |result| %>
-      <li class='search-list'>
-          <div class='search-img-content'>
-        
-            <%= image_tag result.image ,size: '320x240' %>
-          </div>
-          <%= result.name %>
-          <%= result.price %>
-          <%= result.alcohol_content %>
-          <%= result.alcohol_type %>
-          <%= result.taste_type %>
-          <%= result.where_from %>
-          <%= result.company_name %>
-      </li>
-    <% end %>
-    <% else %>
-      <% @results.each do |result| %>
-        <li class='search-list'>
-          <div class='search-img-content'>
-        
-            <%= image_tag result.image ,size: '320x240' %>
-          </div>
-          <%= result.name %>
-          <%= result.price %>
-          <%= result.food_type %>
-          <%= result.where_from %>
-          <%= result.company_name %>
-      </li>
-    <% end %>
-  <% end %>
-  <br>
-  <%= link_to 'トップページへ戻る', root_path %>
+<div class='search-results'>
+<h2 class='search-title'>本日の９品はこちらになります</h2>
 </div>
+  <div class='item-contents'>
+    <ul class='item-lists'>
+      <% @results_alcohol.each do |result| %>
+        <li class='list'>
+        <%# link_to item_path(item.id) do %>
+          <div class='item-img-content'>
+            <%= image_tag result.image ,class: "alcohol-img"  %>
+            <br><%= link_to "購入", root_path ,class:"btn btn--red btn--cubic btn--shadow"%>
+          </div>
+          <div class='item-info'>
+            <h3 class='item-name'>
+            商品名:
+              <%= result.name %>
+            </h3>
+            <div class='item-price'>
+              <span>価格:<%= result.price %>円<br>度数:<%= result.alcohol_content %><br><%= result.alcohol_type %><br>味:<%= result.taste_type %><br>製造:<%= result.where_from %><br>会社名:<%= result.company_name %></span> 
+            </div>
+          </div>
+        </li>
+      <% end %> 
+    </ul>
+  </div>
+  <div class='item-contents'>
+    <ul class='item-lists'>
+      <% @results_food.each do |result| %>
+        <li class='list'>
+          <div class='item-img-content'>
+          <%# link_to item_path(item.id) do %>
+            <%= image_tag result.image , class: "food-img"  %>
+            <br><%= link_to "購入", root_path ,class:"btn btn--red btn--cubic btn--shadow"%>
+          </div>
+          <div class='item-info'>
+            <h3 class='item-name'>
+            商品名:
+                <%= result.name %>
+            </h3>
+            <div class='item-price'>
+              <span>価格:<%= result.price %>円<br>味:<%= result.food_type %><br>製造:<%= result.where_from %><br>会社名:<%= result.company_name %></span>
+            </div>
+          </div>
+        </li>
+      <%end %>
+    </ul>
+  </div>
+  
+  <%= link_to 'トップページへ戻る', root_path , class:"top-page"%>
+
+<%= render "shared/footer" %>
  
