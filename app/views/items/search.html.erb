@@ -1,0 +1,41 @@
+
+<h2 class='service-title'>
+     本日の至極の一品を どうぞ！
+</h2>
+
+<div class="contents row">
+  <% if @results == @alcohols %>
+    <% @results.each do |result| %>
+      <li class='search-list'>
+          <div class='search-img-content'>
+        
+            <%= image_tag result.image ,size: '320x240' %>
+          </div>
+          <%= result.name %>
+          <%= result.price %>
+          <%= result.alcohol_content %>
+          <%= result.alcohol_type %>
+          <%= result.taste_type %>
+          <%= result.where_from %>
+          <%= result.company_name %>
+      </li>
+    <% end %>
+    <% else %>
+      <% @results.each do |result| %>
+        <li class='search-list'>
+          <div class='search-img-content'>
+        
+            <%= image_tag result.image ,size: '320x240' %>
+          </div>
+          <%= result.name %>
+          <%= result.price %>
+          <%= result.food_type %>
+          <%= result.where_from %>
+          <%= result.company_name %>
+      </li>
+    <% end %>
+  <% end %>
+  <br>
+  <%= link_to 'トップページへ戻る', root_path %>
+</div>
+ 

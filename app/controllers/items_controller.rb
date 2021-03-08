@@ -10,9 +10,14 @@ class ItemsController < ApplicationController
     set_food_column
   end
 
-  def search
-    @results = @a.result.includes(:item)
-    @results = @f.result.includes(:item)
+  def search 
+    @results = @a.result
+    @results = @f.result
+    @alcohols = Alcohol.all
+    set_alcohol_column
+    @foods = Food.all
+    set_food_column
+    
   end
 
   private
@@ -27,10 +32,10 @@ class ItemsController < ApplicationController
   
   def  search_food 
     @f = Food.ransack(params[:q])
-    @food_category = Food.select("category").distinct
   end
-
+  
   def set_food_column
+    @food_category = Food.select("category").distinct
     
   end
 end
