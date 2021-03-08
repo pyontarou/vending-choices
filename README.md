@@ -49,7 +49,7 @@
 | where_from       | string     | null: false                    |
 | company_name     | string     | null: false                    |
 | alcohol_type     | string     | null: false                    |
-| type             | string     | null: false                    |
+| taste_type       | string     | null: false                    |
 | image            | string     | null: false                    |
 
 ### Association
