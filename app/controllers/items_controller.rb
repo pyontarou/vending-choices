@@ -11,13 +11,12 @@ class ItemsController < ApplicationController
   end
 
   def search 
-    @results = @a.result
-    @results = @f.result
-    @alcohols = Alcohol.all
-    set_alcohol_column
-    @foods = Food.all
-    set_food_column
-    
+      @results_alcohol = @a.result.limit(9)
+      @alcohols = Alcohol.all
+      set_alcohol_column
+      @results_food = @f.result.limit(9)
+      @foods = Food.all
+      set_food_column 
   end
 
   private
