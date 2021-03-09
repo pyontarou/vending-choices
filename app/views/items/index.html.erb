@@ -2,34 +2,52 @@
 <div class='main'>
 
   <div class='title-contents'>
-    <h2 class='service-title'>
-     本日の至極の一品を 覗いてみませんか?
-    </h2>
     <p class='service-explain'>
-      カテゴリーごとに厳選された10品の中から
+      お酒とおつまみのVeinding
     </p>
     <p class='service-explain'>
-      お好みをchoice
+      カテゴリーごとに厳選された9品の中から
     </p>
-    <p class='service-explain'>
-      <%= link_to image_tag("main_image.png", class:"list-pict"), "#" %>
-    </p>
+    <div class='nav-search'>
+      <p class='service-explain'>
+        お好みをchoice
+      </p>
+      <p class='service-last-explain'>
+        <h1 > 
+        商品検索
+          <%= search_form_for @a, url:  search_items_path do |f| %>
+            <%= f.label :category_eq, 'お酒' %>
+            <br><%= f.collection_select :category_eq, @alcohol_category, :category, :category,  include_blank: '指定なし' %>
+            <button class="search-button">
+              <%= image_tag "search.png", class:"search-icon" %>
+            </button>
+          <% end %>
+          <%= search_form_for @f, url:  search_items_path do |f| %>
+            <%= f.label :category_eq, 'おつまみ' %>
+            <br><%= f.collection_select :category_eq, @food_category, :category, :category,  include_blank: '指定なし' %>
+            <button class="search-button">
+              <%= image_tag "search.png", class:"search-icon" %>
+            </button>
+          <% end %>
+        </h1>
+      </p>
+    </div>
     <div class='nav'>
       <ul class='lists-signlog'>
-    <% if user_signed_in? %>
+      <% if user_signed_in? %>
         <li><%= link_to "#{ current_user.nickname } 様", user_session_path, class: "user-nickname" %></li> 
         <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout"%> </li> 
-    <% else %>
+      <% else %>
         <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
         <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
-    <% end %>
+      <% end %>
       </ul>
     </div>
   </div>
   
   <div class='select-reason-contents'>
     <h2 class='title'>
-    <%= link_to image_tag("cook-hat.png", class:"reason-btn"), "#" %>
+    <%= link_to image_tag("list-logo.png", class:"reason-btn"), "#" %>
       VendingChoicesについて
     </h2>
     <ul class='reason-lists'>
@@ -60,7 +78,7 @@
           <span class='reason-list-main-text'>最短翌日配送</span> 
         </h3>
         <p class='reason-list-description'>
-          <span style="color:red;" >当日17時まで</span>にご購入されました商品は、当日発送いたします
+          <span style="color:#AA0000;" >当日17時まで</span>にご購入されました商品は、当日発送いたします
         </p>
       </li>
     </ul>

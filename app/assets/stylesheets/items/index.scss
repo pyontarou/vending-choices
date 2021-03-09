@@ -8,35 +8,58 @@ a {
 
 .title-contents {
   width: 100vw;
-  background-image: image-url('pexels-ksenia-chernaya.png');
-  background-size: cover;
+  background-image: image-url('pexels-ksenia-chernaya.jpg');
+  background-size: cover ;
   background-repeat: no-repeat;
   background-position: top center;
   display: flex;
-  flex-direction: column;
+  flex-direction:column;
   align-items: flex-start;
   justify-content: center;
   padding: 5vh 15vw;
-  color: #fff;
-  text-shadow: 1px 1px 5px rgba(0, 0, 0, 1.5);
+  color: #333333;
+  text-shadow: 1px 1px 5px white;
 }
 
 .service-title {
   font-size: 6.8vh;
+  color: #c09933;
+  font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;
 }
+
 
 .service-explain {
   font-size: 3.1vh;
-  line-height: 90px;
+  text-align: center;
+}
+.service-last-explain {
+  font-size: 3.1vh;
+  margin-left: 600px;
+  margin-bottom: 400px;
+  
+}
+.nav-search{
+  font-size: 23px;
+  display: flex;
+  width: 120%;
 }
 
-.list-pict {
-  margin-bottom: 20px;
-  width: 19%;
+.search-button {
+  width: 5vh;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #333333;
+  padding: 10px;
+}
+.search-icon {
+  width: 100%;
 }
 
 .select-reason-contents {
-  padding: 5vh 15vw;
+  padding: 13vh 15vw;
+  background: #FFEFD5	;
+  border-top: 2px solid #333333;
 }
 
 .select-reason-contents>.title {
@@ -51,7 +74,7 @@ a {
   content: '';
   width: 200px;
   height: 4px;
-  background-color: #FFCC00;
+  background-color: #AA0000;
   position: absolute;
   bottom: -5px;
   left: 50%;
@@ -85,8 +108,8 @@ a {
   font-size: 30px;
   text-align: center;
   line-height: 60px;
-  background-color: #666666;
-  color: #fff;
+  background-color: #333333;
+  color: #C09933;
 }
 
 .reason-list-text {
@@ -96,10 +119,113 @@ a {
 }
 
 .reason-list-main-text {
-  color: #FF6666;
+  color: #AA0000;
 }
 
 .reason-list-description {
   font-size: 20px;
   margin-top:2px;
 }
+
+/* 商品一覧 */
+.search-results{
+  background: #333333;
+  width: 100vw;
+  padding: 4vh 15vw;
+}
+.search-title {
+  text-align: center;
+  background: #333333;
+  font-size: 6.8vh;
+  color: #c09933;
+  font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;
+}
+
+.item-contents {
+  list-style: none;
+  background: #FFEFD5	;
+}
+
+.search-title {
+  font-size: 5vh;
+  font-weight: bold;  
+}
+
+.item-contents>.subtitle {
+  font-size: 3vh;
+  text-decoration: none;
+  font-weight: bold;
+  
+}
+
+.item-lists {
+  display: flex;
+  flex-wrap: wrap;
+  
+}
+
+
+.item-lists>.list {
+  padding: 2vw 4vw 1vw 4vw;
+  width: calc( (100% - 20px) / 3 );
+}
+
+.item-img-content {
+  position: relative;
+}
+
+.alcohol-img {
+  width: 30vh;
+  height: 40vh;
+  border: 1.0px solid #AA0000;  
+}
+.food-img {
+  width: 45vh;
+  height: 35vh;
+  border: 1.0px solid #AA0000; 
+}
+
+.item-info {
+  background: #FFEFD5	;
+  color: black;
+  padding: 1vw;
+}
+
+a.btn--red {
+  padding: 7px 30px;
+  margin-left: 10px;
+  color: #fff;
+  background-color: #AA0000;
+  border-bottom: 5px solid #CC0000	;
+}
+
+a.btn--red:hover {
+  margin-top: 3px;
+  color: #fff;
+  background: #AA0000;
+  border-bottom: 2px solid #CC0000	;
+}
+a.btn--shadow {
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+}
+
+.item-name {
+  font-size: 2.5vh;
+  font-weight:bold;
+  font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;
+
+}
+
+.item-price {
+  font-size: 2.5vh;
+  display: flex;
+  justify-content: space-between;
+  font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;
+}
+
+.top-page{
+  font-weight: bold;
+}
+
+/* //商品一覧 */

@@ -27,58 +27,52 @@
 
 | Column     | Type       | Options                        |
 | ---------  | ---------- | ------------------------------ |
-| stock      | references | null: false, foreign_key: true |
+| alcohol    | references | null: false, foreign_key: true |
+| food       | references | null: false, foreign_key: true |
+
 
 ### Association
 
-- has_many :alcohols, through: :stocks
-- has_many :foods, through: :stocks
-- has_one :order
+- belongs_to:alcohol
+- belongs_to:food
+- belongs_to :order
 
 
 ## alcohols テーブル
 
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | ------------------------------ |
+| category         | string     | null: false                    |
 | name             | string     | null: false                    |
 | price            | integer    | null: false                    |
 | alcohol_content  | string     | null: false                    |
 | where_from       | string     | null: false                    |
 | company_name     | string     | null: false                    |
 | alcohol_type     | string     | null: false                    |
-| type             | string     | null: false                    |
+| taste_type       | string     | null: false                    |
+| image            | string     | null: false                    |
 
 ### Association
 
-- has_many :items, through: :stocks
+- has_many  :items
 
 ## foods テーブル
 
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | ------------------------------ |
+| category         | string     | null: false                    |
 | name             | string     | null: false                    |
 | price            | integer    | null: false                    |
 | where_from       | string     | null: false                    |
 | company_name     | string     | null: false                    |
 | food_type        | string     | null: false                    |
+| image            | string     | null: false                    |
 
 ### Association
 
-- has_many :items, through: :stocks
+- has_many  :items
 
-## stocks テーブル
 
-| Column     | Type       | Options                        |
-| ---------  | ---------- | ------------------------------ |
-| alcohol    | references | null: false, foreign_key: true |
-| food       | references | null: false, foreign_key: true |
-| order      | references | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :alcohol
-- belongs_to :food
-- belongs_to :order
 
 ## orders テーブル
 
@@ -89,7 +83,7 @@
 
 ### Association
 
-- belongs_to :item
+- has_many :item
 - belongs_to :user
 
 
