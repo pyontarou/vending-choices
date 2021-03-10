@@ -15,16 +15,16 @@
       <p class='service-last-explain'>
         <h1 > 
         商品検索
-          <%= search_form_for @a, url:  search_items_path do |f| %>
+          <%= search_form_for @i, url:  search_items_path do |f| %>
             <%= f.label :category_eq, 'お酒' %>
-            <br><%= f.collection_select :category_eq, @alcohol_category, :category, :category,  include_blank: '指定なし' %>
+            <br><%= f.collection_select :category_eq, @item_category, :category, :category,  include_blank: '指定なし' %>
             <button class="search-button">
               <%= image_tag "search.png", class:"search-icon" %>
             </button>
           <% end %>
-          <%= search_form_for @f, url:  search_items_path do |f| %>
+          <%= search_form_for @i, url:  search_items_path do |f| %>
             <%= f.label :category_eq, 'おつまみ' %>
-            <br><%= f.collection_select :category_eq, @food_category, :category, :category,  include_blank: '指定なし' %>
+            <br><%= f.collection_select :category_eq, @item_category, :category, :category,  include_blank: '指定なし' %>
             <button class="search-button">
               <%= image_tag "search.png", class:"search-icon" %>
             </button>

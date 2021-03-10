@@ -28,14 +28,6 @@ class User < ApplicationRecord
     validates :prefectures_id,numericality: { other_than: 1 , message: 'Input correctly'}
   end
 
-  def order(item)
-    orders.find_or_create_by(item: item)
-  end
-
-  def unorder(item)
-    order_items.delete(item)
-  end
-  
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :prefectures  

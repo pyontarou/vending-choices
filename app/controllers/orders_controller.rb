@@ -7,9 +7,13 @@ class OrdersController < ApplicationController
   end
   
   def create
-    @order = Order.new(user_id: current_user.id, item_id: params[:item_id])
-    @order.save
-    current_user.order(@item)
+    @item = Item.new
+    @order = Order.new(order_params)
+    if  @order.save
+      redirect_to root_path
+    else
+      render :index
+    end
   end
 
   def destroy
@@ -20,5 +24,9 @@ class OrdersController < ApplicationController
   private
   def set_item
     @item = Item.find(params[:item_id])  
+  end
+
+  def order_params
+    params.require(:order).permit(:image).merge(user_id: current_user.id,item_id: params[:item_id])
   end
 end
