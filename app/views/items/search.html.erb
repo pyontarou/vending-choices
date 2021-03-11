@@ -1,14 +1,21 @@
 <div class='search-results'>
 <h2 class='search-title'>本日の９品はこちらになります</h2>
+  <%= link_to image_tag("cart.png", class:"image_cart"),"/" %>
+  <span class="fs-p-cartItemNumber fs-client-cart-count fs-clientInfo is-ready fs-client-cart-count--0">0</span>
+
+  <%= link_to image_tag("home.png", class:"image_home"), root_path %>
 </div>
+
   <div class='item-contents'>
     <ul class='item-lists'>
-      <% @results_alcohol.each do |result| %>
+      <% @results.each do |result| %>
+        <% if result.alcohol_content != nil %> 
         <li class='list'>
-        <%# link_to item_path(item.id) do %>
           <div class='item-img-content'>
             <%= image_tag result.image ,class: "alcohol-img"  %>
-            <br><%= link_to "購入", root_path ,class:"btn btn--red btn--cubic btn--shadow"%>
+            <div id="item_<%= @item %>"> 
+            <br><%= link_to "購入", item_orders_path(result.id), local: true ,class:"btn btn--red btn--cubic btn--shadow"%>
+            </div>
           </div>
           <div class='item-info'>
             <h3 class='item-name'>
@@ -20,17 +27,13 @@
             </div>
           </div>
         </li>
-      <% end %> 
-    </ul>
-  </div>
-  <div class='item-contents'>
-    <ul class='item-lists'>
-      <% @results_food.each do |result| %>
+      <% else %>
         <li class='list'>
           <div class='item-img-content'>
-          <%# link_to item_path(item.id) do %>
             <%= image_tag result.image , class: "food-img"  %>
-            <br><%= link_to "購入", root_path ,class:"btn btn--red btn--cubic btn--shadow"%>
+            <div id="item_<%= @item %>"> 
+            <br><%= link_to "購入", item_orders_path(result.id), local: true  ,class:"btn btn--red btn--cubic btn--shadow"%>
+            </div>
           </div>
           <div class='item-info'>
             <h3 class='item-name'>
@@ -38,15 +41,15 @@
                 <%= result.name %>
             </h3>
             <div class='item-price'>
-              <span>価格:<%= result.price %>円<br>味:<%= result.food_type %><br>製造:<%= result.where_from %><br>会社名:<%= result.company_name %></span>
+              <span>価格:<%= result.price %>円<br>味:<%= result.taste_type %><br>製造:<%= result.where_from %><br>会社名:<%= result.company_name %></span>
             </div>
           </div>
         </li>
+        <%end %>
       <%end %>
     </ul>
   </div>
-  
-  <%= link_to 'トップページへ戻る', root_path , class:"top-page"%>
+
 
 <%= render "shared/footer" %>
  
