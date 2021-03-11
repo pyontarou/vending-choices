@@ -25,54 +25,21 @@
 
 ## items テーブル
 
-| Column     | Type       | Options                        |
-| ---------  | ---------- | ------------------------------ |
-| alcohol    | references | null: false, foreign_key: true |
-| food       | references | null: false, foreign_key: true |
+| Column          | Type       | Options                        |
+| --------------- | ---------- | ------------------------------ |
+| name            | string     | null: false                    |
+| price           | integer    | null: false                    |
+| where_from      | string     | null: false                    |
+| taste_type      | string     | null: false                    |
+| company_name    | string     | null: false                    |
+| alcohol_content | string     |                                |
+| alcohol_type    | string     |                                |
+| order           | references | null: false, foreign_key: true |
 
 
 ### Association
 
-- belongs_to:alcohol
-- belongs_to:food
-- belongs_to :order
-
-
-## alcohols テーブル
-
-| Column           | Type       | Options                        |
-| ---------------- | ---------- | ------------------------------ |
-| category         | string     | null: false                    |
-| name             | string     | null: false                    |
-| price            | integer    | null: false                    |
-| alcohol_content  | string     | null: false                    |
-| where_from       | string     | null: false                    |
-| company_name     | string     | null: false                    |
-| alcohol_type     | string     | null: false                    |
-| taste_type       | string     | null: false                    |
-| image            | string     | null: false                    |
-
-### Association
-
-- has_many  :items
-
-## foods テーブル
-
-| Column           | Type       | Options                        |
-| ---------------- | ---------- | ------------------------------ |
-| category         | string     | null: false                    |
-| name             | string     | null: false                    |
-| price            | integer    | null: false                    |
-| where_from       | string     | null: false                    |
-| company_name     | string     | null: false                    |
-| food_type        | string     | null: false                    |
-| image            | string     | null: false                    |
-
-### Association
-
-- has_many  :items
-
-
+- has_one :order
 
 ## orders テーブル
 
@@ -83,7 +50,7 @@
 
 ### Association
 
-- has_many :item
+- belongs_to :item
 - belongs_to :user
 
 
