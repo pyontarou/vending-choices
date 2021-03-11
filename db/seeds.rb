@@ -1,4 +1,4 @@
-item = Item.create!(major_category:"アルコール", category:'ビール', name:'モルカ', price:500, alcohol_content:'5%', where_from:'日本', company_name:'bee', alcohol_type:"ピルスナー", taste_type:"爽快な香味")
+item = Item.create(major_category:"アルコール", category:'ビール', name:'モルカ', price:500, alcohol_content:'5%', where_from:'日本', company_name:'bee', alcohol_type:"ピルスナー", taste_type:"爽快な香味")
 item.image.attach(io: File.open(Rails.root.join('app/assets/images/beer-1.jpg')),
 filename: 'beer-1.jpg')
 item = Item.create(major_category:"アルコール", category:'ビール', name:'ポッター', price:600, alcohol_content:'5%', where_from:'イギリス', company_name:'Kingdo', alcohol_type:"エール", taste_type:"苦味")
