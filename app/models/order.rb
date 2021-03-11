@@ -1,7 +1,12 @@
 class Order < ApplicationRecord
   attr_accessor :token
-  has_many :items
+  belongs_to :item
   belongs_to :user
-  validates :token, presence: true
+
+  with_options presence: true do
+  validates :token
+  validates :user_id
+  validates :item_id
+  end
   
 end
