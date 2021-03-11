@@ -9,7 +9,6 @@ class Item < ApplicationRecord
     validates :where_from
     validates :company_name
     validates :taste_type
-    validates :image
   end
   validates :price, numericality: true, format: {with: /\A[0-9]+\z/}
 end
