@@ -56,6 +56,11 @@ a {
   width: 100%;
 }
 
+.order-limit {
+  color: red;
+  font-size: 20px;
+}
+
 .select-reason-contents {
   padding: 13vh 15vw;
   background: #FFEFD5	;
@@ -139,6 +144,19 @@ a {
   font-size: 6.8vh;
   color: #c09933;
   font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;
+}
+
+.warning-content{
+  text-align: center;
+  font-size: 25px;
+  background: #FFEFD5;
+  width: 100vw;
+  padding: 4vh 15vw 30vh 15vw;
+}
+.top-page-link{
+  text-align: center;
+  font-size: 20px;
+  color: red;
 }
 
 .item-contents {
