@@ -5,11 +5,16 @@
 
   <%= link_to image_tag("home.png", class:"image_home"), root_path %>
 </div>
-
-  <div class='item-contents'>
-    <ul class='item-lists'>
+  
+<div class='item-contents'>
+  <ul class='item-lists'>
       <% @results.each do |result| %>
-        <% if result.alcohol_content != nil %> 
+    <%if @birthday<20 && result.major_category=="アルコール" %>
+      <p class="warning-content">20歳未満のお客様はお酒の購入はできません
+     <br><%= link_to "Topへ戻る", root_path, class:"top-page-link" %></p>
+      <%break%>  
+    <% else %>
+      <% if result.alcohol_content != nil %> 
         <li class='list'>
           <div class='item-img-content'>
             <%= image_tag result.image ,class: "alcohol-img"  %>
@@ -47,8 +52,9 @@
         </li>
         <%end %>
       <%end %>
-    </ul>
-  </div>
+    <% end %>
+  </ul>
+</div>
 
 
 <%= render "shared/footer" %>
