@@ -20,7 +20,7 @@
             <button class="search-button">
               <%= image_tag "search.png", class:"search-icon" %>
             </button>
-            <%if @birthday < 20 %>
+            <%if user_signed_in? && @birthday < 20 %>
               <p class="order-limit">※アルコールの購入はできません</p>
             <% end %>
           <% end %>

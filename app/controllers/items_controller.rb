@@ -32,8 +32,10 @@ class ItemsController < ApplicationController
   end
 
   def set_birthday
-    @user = User.new
-    birthday = Happybirthday.born_on(current_user.birth_day.to_s)
-    @birthday = birthday.age.years_old 
+     if user_signed_in?
+      @user = User.new
+      birthday = Happybirthday.born_on(current_user.birth_day.to_s)
+      @birthday = birthday.age.years_old    
+     end 
   end
 end
