@@ -1,0 +1,69 @@
+<%# 登録内容の表示 %>
+<div class='form-wrap'>
+  <div class="user-explain-box">
+    <span><%= "登録内容" %></span>
+  </div>
+  <table class="detail-table">
+    <tbody>
+      <tr>
+        <th class="detail-user">ニックネーム</th>
+        <td class="detail-value"><%= @user.nickname %></td>
+      </tr>
+      <tr>
+        <th class="detail-user">メールアドレス</th>
+        <td class="detail-value"><%= @user.email %></td>
+      </tr>
+      <tr>
+        <th class="detail-user">お名前(姓）</th>
+        <td class="detail-value"><%= @user.last_name %></td>
+      </tr>
+      <tr>
+        <th class="detail-user">お名前（名）</th>
+        <td class="detail-value"><%= @user.first_name %></td>
+      </tr>
+      <tr>
+        <th class="detail-user">お名前カナ(姓）</th>
+        <td class="detail-value"><%= @user.last_name_kana %></td>
+      </tr>
+      <tr>
+        <th class="detail-user">お名前カナ(名）</th>
+        <td class="detail-value"><%= @user.first_name_kana %></td>
+      </tr>
+      <tr>
+        <th class="detail-user">生年月日</th>
+        <td class="detail-value"><%= @user.birth_day %></td>
+      </tr>
+      <tr>
+        <th class="detail-user">郵便番号</th>
+        <td class="detail-value"><%= @user.prefecture_code %></td>
+      </tr>
+      <tr>
+        <th class="detail-user">都道府県</th>
+        <td class="detail-value"><%= @user.prefectures[:name] %></td>
+      </tr>
+      <tr>
+        <th class="detail-user">市区町村</th>
+        <td class="detail-value"><%= @user.city %></td>
+      </tr>
+      <tr>
+        <th class="detail-user">番地</th>
+        <td class="detail-value"><%= @user.address %></td>
+      </tr>
+      <tr>
+        <th class="detail-user">建物名</th>
+        <td class="detail-value"><%= @user.building_name %></td>
+      </tr>
+      <tr>
+        <th class="detail-user">電話番号</th>
+        <td class="detail-value"><%= @user.phone_number %></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="detail-btn">
+    <%= link_to "登録内容の編集",edit_user_registration_path, method: :get, class: "item-red-btn" %>
+    
+    <%= link_to "Topページ", root_path,  class:"return-top" %>
+  </div>
+</div>    
+
+
