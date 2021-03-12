@@ -14,7 +14,7 @@
         </h2>
         <div class='buy-item-price'>
           <p class='item-price-text'><%= @item.price %>円</p>
-          
+  
         </div>
       </div>
     </div>
@@ -80,8 +80,9 @@
         登録住所へお届けします
       </h1>
         <p class='send-change'>※ご住所の変更がある場合、ユーザー登録一覧にて修正をお願いいたします
+          <br><%= link_to "ユーザー登録編集", edit_user_registration_path(current_user.id), class:"user-page-link" %>
         </p>
-      
+
     <%# /配送先の入力 %>
     <div class='buy-btn'>
       <%= f.submit "購入" ,class:"buy-red-btn" %>
