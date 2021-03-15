@@ -5,6 +5,7 @@
     <h1 class='transaction-title-text'>
       購入内容の確認
     </h1>
+    
     <%# 購入内容の表示 %>
     <div class='buy-item-info'>
       <%= image_tag @item.image, class: 'buy-item-img' %>
@@ -34,6 +35,7 @@
 
     <%= form_with model:@order, url:item_orders_path ,id: 'charge-form', class: 'transaction-form-wrap',local: true do |f| %>
     <%= render 'shared/error_messages', model: f.object %>
+    
     <%# カード情報の入力 %>
     <div class='credit-card-form'>
       <h1 class='info-input-haedline'>
@@ -76,16 +78,16 @@
     
     <%# 配送先の入力 %>
     
-      <h1 class='info-input-haedline'>
+      <br><h1 class='info-input-haedline'>
         登録住所へお届けします
       </h1>
-        <p class='send-change'>※ご住所の変更がある場合、ユーザー登録一覧にて修正をお願いいたします
+        <p class='send-change'>※ご住所の変更がある場合、ユーザー登録の編集をお願いいたします
           <br><%= link_to "ユーザー登録編集", edit_user_registration_path(current_user.id), class:"user-page-link" %>
         </p>
 
     <%# /配送先の入力 %>
     <div class='buy-btn'>
-      <%= f.submit "購入" ,class:"buy-red-btn" %>
+      <%= f.submit "購入" ,class:"buy-gold-btn" %>
     </div>
     <% end %>
   </div>

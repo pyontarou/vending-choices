@@ -1,48 +1,70 @@
 <%= render "shared/header" %>
 <div class='main'>
-
-  <div class='title-contents'>
-    <p class='service-explain'>
-      お酒とおつまみのVeinding
-    </p>
-    <p class='service-explain'>
-      カテゴリーごとに厳選された9品の中から
+  <%# ログインユーザー %> 
+ <%if user_signed_in? %>
+  <div class='title-contents-login'>
+    <p class='service-explain-login'>
+      お酒とおつまみのVeindingです
     </p>
     <div class='nav-search'>
-      <p class='service-explain'>
-        お好みをchoice
+      <%= search_form_for @i, url:  search_items_path do |f| %>
+        <br><span class="main-category-search-login"><%= f.label :category_eq, '本日の至極の一品を検索してください' %></span>
+        <P class=category-search ><%= f.collection_select :category_eq, @item_category, :category, :category,  include_blank: '指定なし'  %>
+        <button class="search-button-login">
+        <%= image_tag "search.png", class:"search-icon" %>
+        </button>
+        <% unless @birthday > 20%>
+          <br><p class="order-limit"> ※アルコールの購入はできません</p>
+        <% end %>
+      <% end %>
+    </div>
+    <div class='nav'>
+      <ul class='lists-signlog'>
+        <li><%= link_to "#{ current_user.nickname } 様", user_path(current_user.id), class: "user-nickname" %></li> 
+        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout"%> </li>
+      </ul>
+    </div>
+  </div>
+  <%# ログインユーザー %>
+  <%# ログアウトユーザー %>
+  <% else %>
+  <div class='title-contents-logout'>
+    <p class='service-explain-logout'>
+      お酒とおつまみのVeindingです
+    </p>
+    <p class='service-explain-logout'>
+      毎日カテゴリーごとに9品を厳選し
+    </p>
+    <div class='nav-search'>
+      <p class='service-explain-logout'>
+        ご来店をお待ちしております
       </p>
       <p class='service-last-explain'>
         <h1 > 
           <%= search_form_for @i, url:  search_items_path do |f| %>
-            <%= f.label :category_eq, '商品検索' %>
-            <br><%= f.collection_select :category_eq, @item_category, :category, :category,  include_blank: '指定なし' %>
-            <button class="search-button">
-              <%= image_tag "search.png", class:"search-icon" %>
-            </button>
-            <%if user_signed_in? && @birthday < 20 %>
-              <p class="order-limit">※アルコールの購入はできません</p>
-            <% end %>
+            <span class="main-category-search-logout"><%= f.label :category_eq, '至極の一品を検索してください' %></span>
+            <P class=category-search ><%= f.collection_select :category_eq, @item_category, :category, :category,include_blank: '指定なし'  %>
+              <button class="search-button-logout">
+                <%= image_tag "search.png", class:"search-icon" %>
+              </button>
+            </p>
           <% end %>
         </h1>
       </p>
     </div>
     <div class='nav'>
-      <ul class='lists-signlog'>
-      <% if user_signed_in? %>
-        <li><%= link_to "#{ current_user.nickname } 様", user_path(current_user.id), class: "user-nickname" %></li> 
-        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout"%> </li> 
-      <% else %>
+      <ul class='lists-signlog'>   
         <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
         <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
-      <% end %>
       </ul>
-    </div>
+    </div>     
   </div>
-  
+  <% end %>
+  <%# ログアウトユーザー %>
+  <%#VendingChoicesについて  %>
   <div class='select-reason-contents'>
     <h2 class='title'>
-    <%= link_to image_tag("list-logo.png", class:"reason-btn"), "#" %>
+      <%= link_to image_tag("list-logo.png", class:"reason-btn"), "#" %>
       VendingChoicesについて
     </h2>
     <ul class='reason-lists'>
@@ -53,17 +75,17 @@
           <span class='reason-list-main-text'>毎日10時商品が更新</span> 
         </h3>
         <p class='reason-list-description'>
-          当社コンシェルジュが厳選した10点に、毎日更新してお待ちしております
+          当社コンシェルジュが厳選した9点に、毎日更新してお待ちしております
         </p>
       </li>
       <li class='list'>
         <%= link_to image_tag("click.png", class:"reason-btn"), "#" %>
         <span class='reason-list-number'>2</span>
         <h3 class='reason-list-text'>
-          <span class='reason-list-main-text'>シンプルに選ぶだけ</span> 
+          <span class='reason-list-main-text'>購入がシンプル</span> 
         </h3>
         <p class='reason-list-description'>
-          検索はなく、お好きなカテゴリーの10点の中からお選びください
+          カテゴリーを選択し、気になる商品をクリックするだけ！お支払いはクレジットカード決済のみになります
         </p>
       </li>
       <li class='list'>
@@ -78,7 +100,7 @@
       </li>
     </ul>
   </div>
-
+  <%#VendingChoicesについて  %>
 
  
 <%= render "shared/footer" %>

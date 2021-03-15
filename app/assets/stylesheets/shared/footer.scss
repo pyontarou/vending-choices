@@ -34,10 +34,40 @@
 }
 
 .logo-white {
-  width: 20vh;
+  width: 30vh;
   vertical-align: bottom;
 }
 
 .footer>p {
   font-size: 14px;
 }
+
+/* タブレット表示時 */
+@media (max-width: 1024px) {
+  .footer,
+  .footer-contents
+  .footer-link
+   {
+    width:100%;
+    font-size: 50%;
+    margin: 0 auto ;
+   }
+   .logo-white{
+     width: 30%;
+   }
+ }
+
+  /* スマホ表示時 */
+@media (max-width: 599px) {
+  .footer,
+  .footer-contents,
+  .footer-link
+   {
+    width:100%;
+    font-size: 50%;
+    margin: 0 auto ;
+   }
+   .logo-white{
+     width: 30%;
+   }
+ }

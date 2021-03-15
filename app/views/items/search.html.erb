@@ -1,58 +1,61 @@
 <div class='search-results'>
-<h2 class='search-title'>本日の９品はこちらになります</h2>
-  <%= link_to image_tag("cart.png", class:"image_cart"),"/" %>
-  <span class="fs-p-cartItemNumber fs-client-cart-count fs-clientInfo is-ready fs-client-cart-count--0">0</span>
-
-  <%= link_to image_tag("home.png", class:"image_home"), root_path %>
+  <h2 class='search-title'>本日の９品はこちらになります</h2>
+    <%= link_to "Topへ戻る", root_path,class:"toplink-text" %>
 </div>
-  
+ <%# 商品一覧表示 %> 
 <div class='item-contents'>
   <ul class='item-lists'>
-      <% @results.each do |result| %>
-    <%if user_signed_in? && @birthday<20 && result.major_category=="アルコール" %>
-      <p class="warning-content">20歳未満のお客様はお酒の購入はできません
-     <br><%= link_to "Topへ戻る", root_path, class:"top-page-link" %></p>
-      <%break%>  
-    <% else %>
-      <% if result.alcohol_content != nil %> 
-        <li class='list'>
-          <div class='item-img-content'>
-            <%= image_tag result.image ,class: "alcohol-img"  %>
-            <div id="result_<%= @results.ids %>"> 
-              <br><%= link_to "購入", item_orders_path(result.id), method: :post, remoto: true ,class:"btn btn--red btn--cubic btn--shadow"%>
-            </div>
-          </div>
-          <div class='item-info'>
-            <h3 class='item-name'>
-            商品名:
-              <%= result.name %>
-            </h3>
-            <div class='item-price'>
-              <span>価格:<%= result.price %>円<br>度数:<%= result.alcohol_content %><br><%= result.alcohol_type %><br>味:<%= result.taste_type %><br>製造:<%= result.where_from %><br>会社名:<%= result.company_name %></span> 
-            </div>
-          </div>
-        </li>
+    <% @results.each do |result| %>
+      <%# アルコール商品一覧表示 %> 
+      <%if user_signed_in? && @birthday<20 && result.major_category=="アルコール" %>
+        <p class="warning-content">20歳未満のお客様はお酒の購入はできません
+        <br><%= link_to "Topへ戻る", root_path, class:"top-page-link" %></p>
+        <%break%>  
       <% else %>
-        <li class='list'>
-          <div class='item-img-content'>
-            <%= image_tag result.image , class: "food-img"  %>
-            <div id="item_<%= @item %>"> 
-            <br><%= link_to "購入", item_orders_path(result.id), local: true  ,class:"btn btn--red btn--cubic btn--shadow"%>
+        <% if result.alcohol_content != nil %> 
+          <li class='list'>
+            <div class='item-img-content'>
+              <%= image_tag result.image ,class: "alcohol-img"  %>
+              <div class="bay-btn"> 
+                <%= link_to "購入", item_orders_path(result.id), method: :post, remoto: true ,class:"btn btn--red btn--cubic btn--shadow"%>
+              </div>
             </div>
-          </div>
-          <div class='item-info'>
-            <h3 class='item-name'>
-            商品名:
+            <div class='item-info'>
+              <h3 class='item-name'>
+              商品名:
                 <%= result.name %>
-            </h3>
-            <div class='item-price'>
-              <span>価格:<%= result.price %>円<br>味:<%= result.taste_type %><br>製造:<%= result.where_from %><br>会社名:<%= result.company_name %></span>
+              </h3>
+              <div class='item-price'>
+                <span>価格:<%= result.price %>円<br>度数:<%= result.alcohol_content %><br><%= result.alcohol_type %><br>味:<%= result.taste_type %><br>製造:<%= result.where_from %><br>会社名:<%= result.company_name %></span> 
+              </div>
             </div>
-          </div>
-        </li>
+          </li>
+         <%# アルコール商品一覧表示 %> 
+         <%# おつまみ商品一覧表示 %>  
+        <% else %>
+          <li class='list'>
+            <div class='item-img-content'>
+              <%= image_tag result.image , class: "food-img"  %>
+              <div class="bay-btn"> 
+                <%= link_to "購入", item_orders_path(result.id), local: true  ,class:"btn btn--red btn--cubic btn--shadow"%>
+              </div>
+            </div>
+            <div class='item-info'>
+              <h3 class='item-name'>
+                商品名:
+                  <%= result.name %>
+              </h3>
+              <div class='item-price'>
+                <span>価格:<%= result.price %>円<br>味:<%= result.taste_type %><br>製造:<%= result.where_from %><br>会社名:<%= result.company_name %></span>
+              </div>
+            </div>
+          </li>
         <%end %>
+        <%# おつまみ商品一覧表示 %> 
       <%end %>
     <% end %>
+    <%# 商品一覧表示 %> 
+    <%= link_to "Topへ戻る", root_path,class:"toplink-text-end" %>
   </ul>
 </div>
 

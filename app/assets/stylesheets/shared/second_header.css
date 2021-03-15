@@ -1,7 +1,7 @@
 .second-header {
   width: 100%;
   min-width: 800px;
-  height: 137px;
+  height: 175px;
   background-color: #333333;
   display: flex;
   align-items: center;
@@ -12,3 +12,25 @@
   width: 185px;
   height: 120px;
 }
+
+/* タブレット表示時 */
+@media (max-width: 1024px) {
+  .second-header,
+  .second-logo,a {
+    width:50%;
+    margin-left: 80px; 
+   }
+ }
+
+  /* スマホ表示時 */
+@media (max-width: 599px) {
+  .second-header {
+    width:40%;
+    margin: 0 auto; 
+   }
+   .second-logo,a {
+    width:45%;
+    height: 80%;
+    margin-right: 60px; 
+   }
+ }

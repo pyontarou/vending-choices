@@ -4,73 +4,34 @@
 
 .top-page-header {
   width: 100vw;
-  padding: 1vh 15vw;
+  padding: 1.5vh 15vw;
   display: flex;
   flex-direction: column;
   background: #333333;
 }
-
-.nav {
-  font-size: 23px;
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  width: 100%;
-  padding: 1vh 0;
+.service-title {
+  text-align: center;
+  font-size: 6.8vh;
+  color: #c09933;
+  font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;
 }
 
-.lists-left {
-  display: flex;
-  min-width: 200px;
+/* タブレット表示時 */
+@media (max-width: 1024px) {
+  .top-page-header,
+  .service-title {
+    width:100%;
+    font-size: 100%;
+    margin: 0 auto ;
+   }
+ }
 
-}
-
-.lists-signlog {
-  display: flex;
-  list-style: none;
-  align-items:center;
-  padding: 3px;
-}
-
-
-.user-nickname {
-  text-decoration: none;
-  margin-right: 6vw;
-  border: 1px solid white;
-  color: white;
-  padding: 10px ;
-  background: #333333;
-  border-radius: 5%;
-}
-
-
-.logout {
-  text-decoration: none;
-  margin-right: 5vw;
-  border: 1px solid white;
-  color: white;
-  padding: 10px ;
-  background: #333333;
-  border-radius: 5%;
-}
-
-.login {
-  text-decoration: none;
-  line-height: 32px;
-  margin-right: 3vw;
-  color: white;
-  border: 1px solid white;
-  padding: 10px ;
-  background: #333333;
-  border-radius: 5%;
-}
-
-.sign-up {
-  text-decoration: none;
-  color: white;
-  margin-left: 3vw;
-  border: 1px solid white;
-  padding: 10px ;
-  background: #333333;
-  border-radius: 5%;
-}
+  /* スマホ表示時 */
+@media (max-width: 599px) {
+  .top-page-header,
+  .service-title {
+    width:100%;
+    font-size: 80%;
+    margin: 0 auto ;
+   }
+ }

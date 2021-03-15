@@ -1,6 +1,10 @@
 <%# CSS・・・assets/stylesheets/shared/header.css %>
 <header class='top-page-header'>
- <h2 class='service-title'>
-     本日の至極の一品を 覗いてみませんか?
+  <%if user_signed_in? %>
+    <h2 class='service-title'> 本日の至極の一品を覗いてみてください
     </h2>
+  <% else %>
+    <h2 class='service-title'> 本日の至極の一品を覗いてみませんか?
+    </h2>
+  <% end %>
 </header>

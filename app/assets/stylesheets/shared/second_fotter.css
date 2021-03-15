@@ -8,7 +8,7 @@
 }
 
 .second-fotter-text-wrap {
-  margin: 30px 0;
+  margin: 10px 0;
   display: flex;
   justify-content: center;
 }
@@ -24,3 +24,26 @@
   height: 120px;
   margin: 0 auto;
 }
+
+/* タブレット表示時 */
+@media (max-width: 1024px) {
+  .second-fotter,
+  .second-fotter-logo.a{
+    width:50%;
+    margin: 0 auto;
+   }
+ }
+
+  /* スマホ表示時 */
+@media (max-width: 599px) {
+  .second-fotter {
+    width:40%;
+    margin: 0 auto; 
+   }
+   .second-fotter-logo,a {
+    width:20%;
+    height: 50%;
+    margin: 0 auto; 
+   }
+  }
+ 

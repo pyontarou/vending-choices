@@ -12,11 +12,24 @@
   padding: 10vh 10vw;
 }
 
+.transaction-title-text,
+.buy-item-text,
+.item-price-text,
+.item-payment-price,
+.info-input-haedline,
+.form-text,
+.indispensable{
+  font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;
+}
+
+
+
 .transaction-title-text {
   text-align: center;
   border-bottom: 2px solid #f5f5f5;
   font-weight: bold;
   font-size: 22px;
+  
 }
 
 /* 購入内容の表示 */
@@ -95,6 +108,10 @@
   font-size: 20px;
 }
 
+.indispensable{
+  color: red;
+}
+
 .available-card {
   display: flex;
   height: 35px;
@@ -139,7 +156,7 @@
   margin-top: 50px;
 }
 
-.buy-red-btn {
+.buy-gold-btn {
   width: 100%;
   background: #c09933;
   border: 1px solid #c09933;
@@ -148,3 +165,41 @@
   font-size: 17px;
   cursor: pointer;
 }
+.buy-gold-btn:hover {
+  opacity: 0.6;
+}
+
+.user-page-link {
+  font-size: 20px;
+  display: inline-block;
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+}
+.user-page-link:hover {
+  color: #4CAF50;
+}
+
+/* タブレット表示時 */
+@media (max-width: 1024px) {
+  .transaction-contents,
+  .transaction-main {
+    width:50%;
+    margin: 0 auto 
+   }
+ }
+
+  /* スマホ表示時 */
+@media (max-width: 599px) {
+  .transaction-contents,
+  .transaction-main {
+    width:50%;
+    margin: 0 auto 
+   }
+  div,h1,h2,p {
+    font-size: 50%;
+  }
+  .buy-item-img {
+    width:50%
+  }
+ }
+

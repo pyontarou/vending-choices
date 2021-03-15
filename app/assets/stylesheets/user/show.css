@@ -1,6 +1,5 @@
 /* 登録内容の表示 */
 
-
 .form-wrap {
   width: 50%;
   background-color: white;
@@ -40,8 +39,6 @@
 .detail-btn {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
-  /* position: relative; */
 }
 
 .item-red-btn {
@@ -66,6 +63,11 @@
   font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;
   margin: 5px auto;
   padding: 2vh 3vw;
+}
+
+.item-red-btn:hover,
+.return-top:hover {
+  opacity: 0.6;
 }
 
 

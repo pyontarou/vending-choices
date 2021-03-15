@@ -6,7 +6,39 @@ a {
   background: #f8f8f8;
 }
 
-.title-contents {
+/* ログイン表示時 */
+.title-contents-login {
+  width: 100vw;
+  background-image: image-url('login-demi.jpg');
+  background-size: cover ;
+  background-repeat: no-repeat;
+  background-position: top center;
+  display: flex;
+  flex-direction:column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 7vh 15vw 13vh 15vw;
+  color: white;
+}
+
+.service-explain-login,
+.main-category-search-login {
+  font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;
+  text-shadow:
+  1px 0 0 black,
+  0 1px 0 black,
+  -1px 0 0 black,
+  0 -1px 0 black,   
+}
+.service-explain-login {
+  font-size: 3.8vh;
+}
+.main-category-search-login {
+  font-size: 3.4vh;
+}
+
+/* ログアウト表示時 */
+.title-contents-logout {
   width: 100vw;
   background-image: image-url('pexels-ksenia-chernaya.jpg');
   background-size: cover ;
@@ -16,41 +48,58 @@ a {
   flex-direction:column;
   align-items: flex-start;
   justify-content: center;
-  padding: 5vh 15vw;
+  padding: 7vh 15vw 13vh 15vw;
   color: #333333;
-  text-shadow: 1px 1px 5px white;
 }
-
-.service-title {
-  font-size: 6.8vh;
-  color: #c09933;
+.service-explain-logout {
+  font-size: 3.5vh;
+  text-align: left;
   font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;
 }
 
+.main-category-search-logout,
+.category-search {
+  font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;
+}
 
-.service-explain {
-  font-size: 3.1vh;
-  text-align: center;
-}
-.service-last-explain {
-  font-size: 3.1vh;
-  margin-left: 600px;
-  margin-bottom: 400px;
-  
-}
+/* 共通表示時 */
 .nav-search{
   font-size: 23px;
   display: flex;
-  width: 120%;
+  justify-content:space-between;
+  width: 80vw;
+  height: 60vh;
 }
 
-.search-button {
+.main-category-search{
+  font-size: 20px;
+}
+
+.category-search{
+  margin-left: 25px;
+}
+
+.search-button-login {
+  width: 5vh;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #C09933;
+  padding: 10px;
+}
+.search-button-logout {
   width: 5vh;
   border: 0;
   border-radius: 10px;
   cursor: pointer;
   background-color: #333333;
   padding: 10px;
+}
+
+.search-button-login:hover,
+.search-button-logout:hover {
+  background: #AA0000;
+  color: #fff;
 }
 .search-icon {
   width: 100%;
@@ -61,8 +110,58 @@ a {
   font-size: 20px;
 }
 
+.nav {
+  font-size: 23px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 1vh 0;
+}
+
+.lists-left {
+  display: flex;
+  min-width: 200px;
+
+}
+
+.lists-signlog {
+  width: 100vh;
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
+  padding: 3px;
+}
+
+.user-nickname,
+.logout,
+.login,
+.sign-up {
+  text-decoration: none;
+  border: 1px solid white;
+  color: white;
+  padding: 10px ;
+  background: #333333;
+  border-radius: 5%;
+  color: #C09933;
+  font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;
+}
+.user-nickname:hover,
+.logout:hover, 
+.login:hover, 
+.sign-up:hover {
+  color: white;
+}
+
+.service-last-explain {
+  font-size: 3.1vh;
+  font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;
+  
+}
+
+/* vending-choicesについて */
 .select-reason-contents {
-  padding: 13vh 15vw;
+  padding: 10vh 15vw 12vh 15vw;
   background: #FFEFD5	;
   border-top: 2px solid #333333;
 }
@@ -132,120 +231,50 @@ a {
   margin-top:2px;
 }
 
-/* 商品一覧 */
-.search-results{
-  background: #333333;
-  width: 100vw;
-  padding: 4vh 15vw;
-}
-.search-title {
-  text-align: center;
-  background: #333333;
-  font-size: 6.8vh;
-  color: #c09933;
-  font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;
-}
 
-.warning-content{
-  text-align: center;
-  font-size: 25px;
-  background: #FFEFD5;
-  width: 100vw;
-  padding: 4vh 15vw 30vh 15vw;
-}
-.top-page-link{
-  text-align: center;
-  font-size: 20px;
-  color: red;
-}
+ /* タブレット表示時 */
+ @media (max-width: 1024px) {
+  .title-contents-logout,
+  .title-contents-login  {
+    width: 100%;
+    margin: 0 auto;
 
-.item-contents {
-  list-style: none;
-  background: #FFEFD5	;
-  
-}
+   }
+   .main-category-search-login,
+   .service-explain-logout,
+   .service-explain-login, 
+   .nav-search
+    {
+    font-size: 90%;
+  }
+  .user-nickname,
+  .logout,
+  .login,
+  .sign-up{
+    font-size: 80%;
+    margin: 0 auto;
+  }
+ }
+ 
+ /* スマホ表示時 */
+ @media (max-width: 500px) {
+  .title-contents-logout,
+  .title-contents-login  {
+    width: 100%;
+    margin: 0 auto;
 
-.search-title {
-  font-size: 5vh;
-  font-weight: bold;  
-  
-}
-
-.item-contents>.subtitle {
-  font-size: 3vh;
-  text-decoration: none;
-  font-weight: bold;
-  
-}
-
-.item-lists {
-  display: flex;
-  flex-wrap: wrap;
-  
-}
-
-
-.item-lists>.list {
-  padding: 2vw 4vw 1vw 4vw;
-  width: calc( (100% - 20px) / 3 );
-}
-
-.item-img-content {
-  position: relative;
-}
-
-.alcohol-img {
-  width: 30vh;
-  height: 40vh;
-  border: 1.0px solid #AA0000;  
-}
-.food-img {
-  width: 45vh;
-  height: 35vh;
-  border: 1.0px solid #AA0000; 
-}
-
-.item-info {
-  background: #FFEFD5	;
-  color: black;
-  padding: 1vw;
-}
-
-a.btn--red {
-  padding: 7px 30px;
-  margin-left: 10px;
-  color: #fff;
-  background-color: #AA0000;
-  border-bottom: 5px solid #CC0000	;
-}
-
-a.btn--red:hover {
-  margin-top: 3px;
-  color: #fff;
-  background: #AA0000;
-  border-bottom: 2px solid #CC0000	;
-}
-a.btn--shadow {
-  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
-  box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
-}
-
-.item-name {
-  font-size: 2.5vh;
-  font-weight:bold;
-  font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;
-
-}
-
-.item-price {
-  font-size: 2.5vh;
-  display: flex;
-  justify-content: space-between;
-  font-family: 'ヒラギノ明朝 ProN','Hiragino Mincho ProN',sans-serif;
-}
-
-.top-page{
-  font-weight: bold;
-}
-
-/* //商品一覧 */
+   }
+   .main-category-search-login,
+   .service-explain-logout,
+   .service-explain-login, 
+   .nav-search
+    {
+    font-size: 80%;
+  }
+  .user-nickname,
+  .logout,
+  .login,
+  .sign-up{
+    font-size: 30%;
+  }
+ }
