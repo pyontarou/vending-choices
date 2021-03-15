@@ -1,10 +1,10 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_item, only: [:index,:create]
+  before_action :login_item, only: [ :index, :create ]
   
   def index
     @order = Order.new
-    
   end
   
   def create
@@ -18,10 +18,6 @@ class OrdersController < ApplicationController
     end
   end
   
-  def destroy
-    @item = Order.find(params[:id]).item
-    current_user.unorder(@item)
-  end
   
   
   private
@@ -40,5 +36,10 @@ class OrdersController < ApplicationController
       card: order_params[:token],
       currency: 'jpy' ) 
   end
-  
+
+  def login_item
+    if current_user.id == @user_id || @item.order != nil 
+       redirect_to root_path 
+    end
+  end
 end

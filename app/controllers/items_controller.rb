@@ -1,5 +1,4 @@
 class ItemsController < ApplicationController
-  # before_action :authenticate_user!
   before_action :search_item, only: [:index, :search]
   before_action :set_item, only: [:index, :search]
   before_action :set_birthday, only: [:index, :search]
@@ -12,9 +11,9 @@ class ItemsController < ApplicationController
   end
 
   def search 
-      @results = @i.result.limit(9)
-      set_item_column
-      @order = Order.new
+    @results = @i.result.limit(9)
+    set_item_column
+    @order = Order.new
   end
 
   private
@@ -32,10 +31,10 @@ class ItemsController < ApplicationController
   end
 
   def set_birthday
-     if user_signed_in?
-      @user = User.new
-      birthday = Happybirthday.born_on(current_user.birth_day.to_s)
-      @birthday = birthday.age.years_old    
-     end 
+    if user_signed_in?
+    @user = User.new
+    birthday = Happybirthday.born_on(current_user.birth_day.to_s)
+    @birthday = birthday.age.years_old    
+    end 
   end
 end
